@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2022-02-28T16:31:17-05:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Les ensembles</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>window.MathJax = {
+  tex: {
+    inlineMath: [['\\(','\\)']],
+    tags: "none",
+    useLabelIds: true,
+    tagSide: "right",
+    tagIndent: ".8em",
+    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
+  },
+  options: {
+    ignoreHtmlClass: "tex2jax_ignore",
+    processHtmlClass: "has_am",
+  },
+  chtml: {
+    scale: 0.88,
+    mtextInheritFont: true
+  },
+  loader: {
+    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
+    paths: {pretext: "https://pretextbook.org/js/lib"},
+  },
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.min.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/0.13/pretext.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/0.13/pretext_add_on.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script xmlns:svg="http://www.w3.org/2000/svg">sagecellEvalName='Evaluate (Sage)';
+</script><link xmlns:svg="http://www.w3.org/2000/svg" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/pretext.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/banner_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/toc_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/knowls_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/style_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/colors_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/setcolors.css" rel="stylesheet" type="text/css">
+<!-- 2019-10-12: Temporary - CSS file for experiments with styling --><link xmlns:svg="http://www.w3.org/2000/svg" href="developer.css" rel="stylesheet" type="text/css">
+</head>
+<body class="mathbook-book has-toc has-sidebar-left">
+<a class="assistive" href="#content">Skip to main content</a><div xmlns:svg="http://www.w3.org/2000/svg" id="latex-macros" class="hidden-content" style="display:none">\(\newcommand{\foo}{bar}
+\newcommand{\telque}{ \,|\, }
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\)</div>
+<header id="masthead" class="smallbuttons"><div class="banner"><div class="container">
+<a id="logo-link" href=""></a><div class="title-container">
+<h1 class="heading"><a href="relcalc1.html"><span class="title">RELCALC 1</span></a></h1>
+<p class="byline"></p>
+</div>
+</div></div>
+<nav xmlns:svg="http://www.w3.org/2000/svg" id="primary-navbar" class="navbar"><div class="container">
+<div class="navbar-top-buttons">
+<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3"><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="prealables.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="prealables.html" title="Up">Up</a><span id="nextbutton" class="next-button button toolbar-item disabled">Next</span></span></div>
+</div>
+<div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="prealables.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="prealables.html" title="Up">Up</a><span class="next-button button toolbar-item disabled">Next</span>
+</div>
+</div></nav></header><div class="page">
+<div xmlns:svg="http://www.w3.org/2000/svg" id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
+<nav id="toc"><ul>
+<li class="link part"><a href="part-1.html" data-scroll="part-1"><span class="codenumber">I</span> <span class="title">Fonctions rationnelles</span></a></li>
+<li class="link">
+<a href="prealables.html" data-scroll="prealables"><span class="codenumber">1</span> <span class="title">Préalables</span></a><ul><li><a href="ensembles.html" data-scroll="ensembles" class="active">Les ensembles</a></li></ul>
+</li>
+</ul></nav><div class="extras"><nav><a class="mathbook-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
+</div></div>
+<main class="main"><div id="content" class="pretext-content"><section xmlns:svg="http://www.w3.org/2000/svg" class="section" id="ensembles"><h2 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber">1.1</span> <span class="title">Les ensembles</span>
+</h2>
+<p id="p-3">Le terme ensemble est intuitivement compris comme désignant une collection d'objets. Par exemple, l'ensemble des couleurs primaires en peinture est {rouge, jaune, bleu} et il comprend 3 objets, à savoir les couleurs rouge, jaune et bleu. En mathématiques, ce concept fondamental d'ensemble est le point de départ sur lequel on peut construire des idées plus complexes, et c'est la raison pour laquelle notre étude du calcul différentiel s'amorce sur leur présentation.</p>
+<section class="subsection" id="ensembles-notation-oprations"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">1.1.1</span> <span class="title">Notation et opérations ensemblistes</span>
+</h3>
+<p id="p-4">Un <em class="emphasis">ensemble</em> est un regroupement d'objets distincts. Les objets sont appelés <em class="emphasis">éléments</em> de l'ensemble.</p>
+<p id="p-5">Pour dénoter des ensembles, la convention mathématiques est d'utiliser des lettres majuscules, par exemple \(A, B, C, X, Y\text{.}\) Et pour représenter les éléments d'un ensemble, on utilise plutôt des lettres minuscules, par exemple \(a, b, c, x, y\text{.}\)</p>
+<p id="p-6">Un ensemble peut être <em class="emphasis">défini en extension</em>, c’est-à-dire en énumérant les éléments qu’il contient. Pour se faire, on place les éléments entre accolades et les séparés par des virgules. Par exemple, pour définir en extension l'ensemble des diviseurs du nombre 12, on écrit</p>
+<div class="displaymath">
+\begin{equation*}
+A = \{1, 2, 3, 4, 6, 12\}\text{.}
+\end{equation*}
+</div>
+<p class="continuation">Cet énoncé mathématique se lit de la façon suivante : « \(A\) est l'ensemble contenant les éléments 1, 2, 3, 4, 6, 12 ».</p>
+<p id="p-7">Un ensemble peut également être <em class="emphasis">défini en compréhension</em>, c’est-à-dire en décrivant les caractéristiques des éléments qu’il contient. Ceci est utile lorsqu'un ensemble contient un grand nombre d'éléments, voire une infinité. Pour se faire, on utilise la notation d'un ensemble en compréhension. Par exemple, pour définir en compréhension l'ensemble contenant les entiers 3, 4, 5, 6 et 7, on peut écrire</p>
+<div class="displaymath">
+\begin{equation*}
+B = \{x \telque x \text{ est un entier supérieur à 2 et inférieur à 8}\}\text{.}
+\end{equation*}
+</div>
+<p class="continuation">La barre verticale « \(\telque\) » est un symbole signifiant « tel que », donc l'énoncé mathématique se lit comme suit : « \(B\) est l'ensemble contenant tous les éléments \(x\) tels que \(x\) est supérieur à 2 et inférieur à 8 ». À noter que cet ensemble se décrit en extension de la façon suivante : \(B = \{3, 4, 5, 6, 7\}\text{.}\)</p>
+<article class="example example-like" id="ens_ext_comp"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-ens_ext_comp"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.1.1</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-ens_ext_comp"><article class="example example-like"><p id="p-8">Décrivez en extension et en compréhension l'ensemble \(A\) contenant tous les nombres pairs entre 1 et 11.</p>
+<div class="solutions">
+<a data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-1" id="solution-1"><span class="type">Solution</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-1"><div class="solution solution-like">
+<p id="p-9">En extension : \(A = \{2,4,6,8,10\}\text{.}\)</p>
+<p id="p-10">En compréhension : \(A = \{x \telque x \text{ est un nombre pair entre $1$ et $11$}\}\text{.}\)</p>
+</div></div>
+</div></article></div>
+<p id="p-11">Ce qui est en jeu au premier chef dans la notion d'ensemble, c'est la <em class="emphasis">relation d’appartenance</em>, laquelle établit si un élément fait partie d'un ensemble. Pour indiquer que l'élément \(x\) appartient à l'ensemble \(A\text{,}\) on écrit \(x \in A\text{.}\) Cet énoncé peut se lire de différentes façons : « \(x\) appartient à \(A\) », « \(x\) est élément de \(A\) », « \(x\) est dans \(A\) », « \(A\) a pour élément \(a\) », « \(A\) possède \(x\) ». Par exemple, \(3 \in \{1,2,3,4,5\}\text{.}\)</p>
+<p id="p-12">Comme souvent pour les relations, on barre le symbole \(\in\) pour indiquer sa négation, à savoir la non-appartenance d’un élément à un ensemble. Ainsi, pour indiquer que l'élément \(x\) n'appartient pas à l'ensemble \(A\text{,}\) on écrit \(x \notin A\text{.}\) Par exemple, \(7 \notin \{1,2,3,4,5\}\text{.}\)</p>
+<p id="p-13">Lorsque tous les éléments d'un ensemble \(A\) sont aussi éléments d'un ensemble \(B\text{,}\) on dit alors que l'ensemble \(A\) est un <em class="emphasis">sous-ensemble</em> de l'ensemble \(B\) ou encore que l'ensemble \(A\) est une partie de l'ensemble \(B\text{.}\) On note ceci \(A \subseteq B\text{.}\) Par ailleurs, si l'ensemble \(C\) n'est pas un sous-ensemble de l'ensemble \(D\text{,}\) alors on écrit \(C \not\subseteq D\text{.}\) Cela revient à dire qu'il y a un élément de \(C\) qui n'est pas dans \(D\text{,}\) c'est-à-dire qu'il existe un élément \(c \in C\) tel que \(c \notin D\text{.}\) De plus, si les ensembles \(E\) et \(F\) contiennent les mêmes éléments, alors on dit que ces deux ensembles sont <em class="emphasis">égaux</em>, ce que l'on note \(E = F\text{.}\)</p>
+<p id="p-14">Un ensemble important en mathématiques est l'ensemble vide. L'<em class="emphasis">ensemble vide</em> est l'ensemble qui ne contient aucun élément. Il est noté \(\varnothing\) ou \(\{ \}\text{.}\) Pour tout élément \(x\text{,}\) nous avons toujours \(x \notin \varnothing\text{.}\) Et pour tout ensemble \(A\text{,}\) on a \(\varnothing \in A\text{.}\)</p>
+<article class="example example-like" id="ex_ens_notation"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-ex_ens_notation"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.1.2</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-ex_ens_notation"><article class="example example-like"><p id="p-15">Soit \(A = \{1,2,3,4,5,6\}\text{,}\) \(B = \{2,4,6\}\text{,}\) \(C = \{1,2,3\}\) et \(D = \{7,8,9\}\text{.}\) Déterminez lesquelles des propositions suivantes sont vraies, fausses ou dénuées de sens.</p>
+<ol id="p-16" class="decimal cols3">
+<li id="li-1">\(A \subset B\text{.}\)</li>
+<li id="li-2">\(B \subset A\text{.}\)</li>
+<li id="li-3">\(B \in C\text{.}\)</li>
+<li id="li-4">\(\emptyset \in A\text{.}\)</li>
+<li id="li-5">\(\emptyset \subset A\text{.}\)</li>
+<li id="li-6">\(A \lt D\text{.}\)</li>
+<li id="li-7">\(3 \in C\text{.}\)</li>
+<li id="li-8">\(3 \subset C\text{.}\)</li>
+<li id="li-9">\(\{3\} \subset C\text{.}\)</li>
+</ol>
+<div class="solutions">
+<a data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-2" id="solution-2"><span class="type">Solution</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-2"><div class="solution solution-like"><ol id="p-17" class="decimal">
+<li id="li-10"><p id="p-18">Faux. Par exemple, \(1\in A\) mais \(1 \notin B\text{.}\)</p></li>
+<li id="li-11"><p id="p-19">Vrai. Tout élément de \(B\) est un élément de \(A\text{.}\)</p></li>
+<li id="li-12"><p id="p-20">Faux. Les éléments de \(C\) sont 1, 2, 3. L'ensemble \(B\) n'est pas égal à 1, 2 ou 3.</p></li>
+<li id="li-13"><p id="p-21">Faux. Aucun des 6 éléments de \(A\) n'est l'ensemble vide.</p></li>
+<li id="li-14"><p id="p-22">Vrai. Notez que l'ensemble vide est un sous-ensemble de chaque ensemble.</p></li>
+<li id="li-15"><p id="p-23">Dénué de sens. Un ensemble ne peut pas être inférieur à un autre ensemble.</p></li>
+<li id="li-16"><p id="p-24">Vrai. \(3\) est un des éléments de l'ensemble \(C\text{.}\)</p></li>
+<li id="li-17"><p id="p-25">Dénué de sens. \(3\) n'est pas un ensemble, alors il ne peut pas un sous-ensemble d'un autre ensemble.</p></li>
+<li id="li-18"><p id="p-26">Vrai. \(3\) est le seul élément de l'ensemble \(\{3\}\text{,}\) et il est un élément de \(C\text{,}\) donc tout élément de \(\{3\}\) est un élément de \(C\text{.}\)</p></li>
+</ol></div></div>
+</div></article></div>
+<p id="p-27">On va maintenant définir quelques opérations utiles sur les ensembles.</p>
+<p id="p-28">L'<em class="emphasis">union</em> de deux ensembles \(A\) et \(B\text{,}\) notée \(A \cup B\) (lire « \(A\) union \(B\) »), est l'ensemble des éléments appartenant à \(A\) ou à \(B\) (ou aux deux). Formellement,</p>
+<div class="displaymath">
+\begin{equation*}
+A \cup B = \{x \telque x\in A \text{ ou } x \in B \}.
+\end{equation*}
+</div>
+<p id="p-29">L'<em class="emphasis">intersection</em> de deux ensembles \(A\) et \(B\text{,}\) notée \(A \cap B\) (lire « \(A\) inter \(B\) »), est l'ensemble des éléments appartenant à \(A\) et à \(B\text{.}\) Formellement,</p>
+<div class="displaymath">
+\begin{equation*}
+A \cap B = \{x \telque x\in A \text{ et } x \in B \}.
+\end{equation*}
+</div>
+<p id="p-30">La <em class="emphasis">différence</em> de deux ensembles \(A\) et \(B\text{,}\) notée \(A \setminus B\) (lire « \(A\) moins \(B\) »), est l'ensemble des éléments appartenant à \(A\) mais n'appartenant pas à \(B\text{.}\) Formellement,</p>
+<div class="displaymath">
+\begin{equation*}
+A \setminus B = \{x \telque x\in A \text{ et } x \notin B \}.
+\end{equation*}
+</div>
+<article class="example example-like" id="exemple_ensemble_operations"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-exemple_ensemble_operations"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.1.3</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exemple_ensemble_operations"><article class="example example-like"><p id="p-31">Soit \(A = \{1,2,3,4,5\}\text{,}\) \(B = \{3,4,5,6,7\}\) et \(C = \{7,8,9\}\text{.}\) Déterminez les ensembles suivants.</p>
+<ol id="p-32" class="decimal cols3">
+<li id="li-19"><p id="p-33">\(A \cap B\text{.}\)</p></li>
+<li id="li-20"><p id="p-34">\(A \cap C\text{.}\)</p></li>
+<li id="li-21"><p id="p-35">\(A \cup B\text{.}\)</p></li>
+<li id="li-22"><p id="p-36">\(A \cup C\text{.}\)</p></li>
+<li id="li-23"><p id="p-37">\(A \setminus B\text{.}\)</p></li>
+<li id="li-24"><p id="p-38">\(B \setminus A\text{.}\)</p></li>
+</ol>
+<div class="solutions">
+<a data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-3" id="solution-3"><span class="type">Solution</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-3"><div class="solution solution-like"><ol id="p-39" class="decimal">
+<li id="li-25"><p id="p-40">\(A \cap B = \{3,4,5\}\text{.}\)</p></li>
+<li id="li-26"><p id="p-41">\(A \cap C = \varnothing\text{.}\)</p></li>
+<li id="li-27"><p id="p-42">\(A \cup B = \{1,2,3,4,5,6,7\}\text{.}\)</p></li>
+<li id="li-28"><p id="p-43">\(A \cup C = \{1,2,3,4,5,6,7,8,9\}\text{.}\)</p></li>
+<li id="li-29"><p id="p-44">\(A \setminus B = \{1,2\}\text{.}\)</p></li>
+<li id="li-30"><p id="p-45">\(B \setminus A = \{6,7\}\text{.}\)</p></li>
+</ol></div></div>
+</div></article></div></section><section class="subsection" id="ensembles-de-nombres"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">1.1.2</span> <span class="title">Ensembles de nombres</span>
+</h3>
+<p id="p-46">En fonction de leurs caractéristiques, les nombres sont classés en différents ensembles, appelés <em class="emphasis">ensembles de nombres</em>. Les principaux ensembles de nombres sont les suivants:</p>
+<ul class="disc">
+<li id="li-31"><p id="p-47">\(\mathbb{N} = \{0,1,2,3,\ldots\}\) désigne l'ensemble des <em class="emphasis">entiers naturels</em>.</p></li>
+<li id="li-32"><p id="p-48">\(\mathbb{Z} = \{\ldots,-2,-1,0,1,2,\ldots\}\) désigne l'ensemble des <em class="emphasis">entiers</em>, également appelés entiers relatifs.</p></li>
+<li id="li-33"><p id="p-49">\(\mathbb{Q} = \{\frac{a}{b} \telque a, b \in \mathbb{Z} \text{ et } b \neq 0\}\) désigne l'ensemble des <em class="emphasis">rationnels</em>. La représentation décimale des rationnels est finie ou périodique.</p></li>
+<li id="li-34"><p id="p-50">\(\mathbb{Q}'\) désigne l'ensemble des <em class="emphasis">irrationnels</em>, c'est-à-dire l'ensemble des nombres ne pouvant pas s'écrire sous forme de fraction de nombres entiers. La représentation décimale des irrationnels est infinie non périodique.</p></li>
+<li id="li-35"><p id="p-51">\(\mathbb{R} = \mathbb{Q} \cup \mathbb{Q}'\) désigne l'ensemble des <em class="emphasis">réels</em>.</p></li>
+</ul>
+<p id="p-52">On remarque que</p>
+<div class="displaymath">
+\begin{equation*}
+\mathbb{N} \subseteq \mathbb{Z} \subseteq \mathbb{Q} \subseteq \mathbb{R}.
+\end{equation*}
+</div>
+<p id="p-53">On peut adjoindre ces ensembles des symboles \(+\) et \(-\text{,}\) placés en exposant, pour signifier qu’on considère les valeurs positives ou négatives respectivement. De son côté, le symbole \(*\) signifie qu’on retire le 0 de l'ensemble.</p>
+<p id="p-54"><figure class="table table-like" id="table-1"><figcaption><span class="type">Table</span><span class="space"> </span><span class="codenumber">1.1.4<span class="period">.</span></span><span class="space"> </span>Ensemble de nombres</figcaption><div class="tabular-box natural-width"><table class="tabular">
+<tr class="header-horizontal">
+<th class="l m b1 r0 l0 t0 lines">Notation</th>
+<th class="l m b1 r0 l0 t0 lines">Nom de l'ensemble</th>
+<th class="l m b1 r0 l0 t0 lines">Représentation</th>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">\(\mathbb{N}\)</td>
+<td class="l m b0 r0 l0 t0 lines">Entiers naturels</td>
+<td class="l m b0 r0 l0 t0 lines">\(\mathbb{N} = \{0,1,2,3,\ldots\}\)</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">\(\mathbb{N}^{*}\)</td>
+<td class="l m b0 r0 l0 t0 lines">Entiers naturels non nuls</td>
+<td class="l m b0 r0 l0 t0 lines">\(\mathbb{N} = \mathbb{N} \setminus \{0\} = \{1,2,3,\ldots\}\)</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">\(\mathbb{Z}\)</td>
+<td class="l m b0 r0 l0 t0 lines">Entiers</td>
+<td class="l m b0 r0 l0 t0 lines">\(\mathbb{Z} = \{\ldots,-2,-1,0,1,2,\ldots\}\)</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">\(\mathbb{Z}^{+}\)</td>
+<td class="l m b0 r0 l0 t0 lines">Entiers positifs</td>
+<td class="l m b0 r0 l0 t0 lines">\(\mathbb{Z}^{+} = \mathbb{N} = \{0,1,2,3,\ldots\}\)</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">\(\mathbb{Z}^{-}\)</td>
+<td class="l m b0 r0 l0 t0 lines">Entiers négatifs</td>
+<td class="l m b0 r0 l0 t0 lines">\(\mathbb{Z}^{-} = \mathbb{Z} \setminus \mathbb{N}^{*} = \{\ldots,-3,-2,-1,0\}\)</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">\(\mathbb{Z}^{*}\)</td>
+<td class="l m b0 r0 l0 t0 lines">Entiers non nuls</td>
+<td class="l m b0 r0 l0 t0 lines">\(\mathbb{Z}^{*} = \mathbb{Z} \setminus \{0\} = \{\ldots,-2,-1,1,2,\ldots\}\)</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">\(\mathbb{Q}\)</td>
+<td class="l m b0 r0 l0 t0 lines">Rationnels</td>
+<td class="l m b0 r0 l0 t0 lines">\(\mathbb{Q} = \{\frac{a}{b} \telque a \in \mathbb{Z} \text{ et } b \in \mathbb{Z}^{*}\}\)</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">\(\mathbb{Q}'\)</td>
+<td class="l m b0 r0 l0 t0 lines">Irrationnels</td>
+<td class="l m b0 r0 l0 t0 lines"></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">\(\mathbb{R}\)</td>
+<td class="l m b0 r0 l0 t0 lines">Réels</td>
+<td class="l m b0 r0 l0 t0 lines">\(\mathbb{R} = \mathbb{Q} \cup \mathbb{Q}'\)</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">\(\mathbb{R}^{+}\)</td>
+<td class="l m b0 r0 l0 t0 lines">Réels positifs</td>
+<td class="l m b0 r0 l0 t0 lines">\(\mathbb{R}^{+} = \{x \in \mathbb{R} \telque x \geqslant 0\}\)</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">\(\mathbb{R}^{-}\)</td>
+<td class="l m b0 r0 l0 t0 lines">Réels négatifs</td>
+<td class="l m b0 r0 l0 t0 lines">\(\mathbb{R}^{-} = \{x \in \mathbb{R} \telque x \leqslant 0\}\)</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">\(\mathbb{R}^{*}\)</td>
+<td class="l m b0 r0 l0 t0 lines">Réels non nuls</td>
+<td class="l m b0 r0 l0 t0 lines">\(\mathbb{R}^{*} = \mathbb{R} \setminus \{0\}\)</td>
+</tr>
+</table></div></figure></p>
+<p id="p-55"><article class="example example-like" id="exemple_ensemble_nombres"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-exemple_ensemble_nombres"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.1.5</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exemple_ensemble_nombres"><article class="example example-like"><p id="p-56">Pour chaque énoncé, dites s'il est vrai ou faux.</p>
+<ol id="p-57" class="decimal cols3">
+<li id="li-36"><p id="p-58">\(\mathbb{N} \cup \mathbb{Z}^{-} = \mathbb{Z}\text{.}\)</p></li>
+<li id="li-37"><p id="p-59">\(\mathbb{N} \cap \mathbb{Z}^{-} = \varnothing\text{.}\)</p></li>
+<li id="li-38"><p id="p-60">\(\mathbb{Q} \cap \mathbb{Q}' = \varnothing\text{.}\)</p></li>
+<li id="li-39"><p id="p-61">\(\mathbb{Q} \setminus \mathbb{Z} = \mathbb{Q}'\text{.}\)</p></li>
+<li id="li-40"><p id="p-62">\(\mathbb{R} \setminus \mathbb{Q}' = \mathbb{Q}\text{.}\)</p></li>
+<li id="li-41"><p id="p-63">\(\mathbb{Z} \cap \mathbb{N} = \mathbb{N}\text{.}\)</p></li>
+<li id="li-42"><p id="p-64">\(0 \in \mathbb{Z}^{-}\text{.}\)</p></li>
+<li id="li-43"><p id="p-65">\(\sqrt{2} \in \mathbb{N}\text{.}\)</p></li>
+<li id="li-44"><p id="p-66">\(\frac{8}{2} \in \mathbb{N}\text{.}\)</p></li>
+<li id="li-45"><p id="p-67">\(\frac{-25}{3} \in \mathbb{Z}^{-}\text{.}\)</p></li>
+<li id="li-46"><p id="p-68">\(\sqrt[\leftroot{-2}\uproot{2}4]{256} \in \mathbb{Q}'\text{.}\)</p></li>
+<li id="li-47"><p id="p-69">\(\sqrt{\frac{4}{9}} \in \mathbb{Q}\text{.}\)</p></li>
+</ol>
+<div class="solutions">
+<a data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-4" id="solution-4"><span class="type">Solution</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-4"><div class="solution solution-like"><ol id="p-70" class="decimal">
+<li id="li-48"><p id="p-71">Vrai.</p></li>
+<li id="li-49"><p id="p-72">Faux car \(\mathbb{N} \cap \mathbb{Z}^{-} = \{0\}\text{.}\)</p></li>
+<li id="li-50"><p id="p-73">Vrai.</p></li>
+<li id="li-51"><p id="p-74">Faux, par exemple \(\frac{1}{2} \in \mathbb{Q} \setminus \mathbb{Z}\) mais \(\frac{1}{2} \notin \mathbb{Q}'\text{.}\)</p></li>
+<li id="li-52"><p id="p-75">Vrai.</p></li>
+<li id="li-53"><p id="p-76">Vrai.</p></li>
+<li id="li-54"><p id="p-77">Vrai.</p></li>
+<li id="li-55"><p id="p-78">Faux, \(\sqrt{2}\) est un irrationnel et non un entier naturel.</p></li>
+<li id="li-56"><p id="p-79">Vrai.</p></li>
+<li id="li-57"><p id="p-80">Faux, \(\frac{-25}{3} \approx -8,333\) n'est pas un entier relatif négatif.</p></li>
+<li id="li-58"><p id="p-81">Faux, \(\sqrt[\leftroot{-2}\uproot{2}4]{256} = 4\) est un rationnel et non un irrationnel.</p></li>
+<li id="li-59"><p id="p-82">Vrai.</p></li>
+</ol></div></div>
+</div></article></div></p></section><section class="subsection" id="notation-dintervalle"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">1.1.3</span> <span class="title">Notation d'intervalle</span>
+</h3>
+<p id="p-83">Souvent, on est emmené à travailler avec des sous-ensembles de nombres réels, en particulier des segments de la droite réelle. Une manière pratique et standard de représenter de tels sous-ensembles consiste à utiliser la notation d'intervalle.</p>
+<p id="p-84">Un <em class="emphasis">intervalle réel borné</em> est un ensemble de nombres réels délimité par deux nombres réels constituant une borne inférieure et une borne supérieure. Un intervalle contient tous les nombres réels compris entre ces deux bornes, les bornes pouvant être incluses ou non dans l'intervalle.</p>
+<p id="p-85"><figure class="table table-like" id="table-2"><figcaption><span class="type">Table</span><span class="space"> </span><span class="codenumber">1.1.6<span class="period">.</span></span><span class="space"> </span>Intervalles bornés</figcaption><div class="tabular-box natural-width"><table class="tabular">
+<tr class="header-horizontal">
+<th class="l m b1 r0 l0 t0 lines">Notation</th>
+<th class="l m b1 r0 l0 t0 lines">En compréhension</th>
+<th class="l m b1 r0 l0 t0 lines">Représentation visuelle</th>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">\([a, b]\)</td>
+<td class="l m b0 r0 l0 t0 lines">\(\{x \in \mathbb{R} \telque a \leqslant x \leqslant b\}\)</td>
+<td class="l m b0 r0 l0 t0 lines"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="images/image-1.svg" role="img" class="contained" alt=""></div></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">\(]a, b[\)</td>
+<td class="l m b0 r0 l0 t0 lines">\(\{x \in \mathbb{R} \telque a \lt x \lt b\}\)</td>
+<td class="l m b0 r0 l0 t0 lines"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="images/image-2.svg" role="img" class="contained" alt=""></div></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">\([a, b[\)</td>
+<td class="l m b0 r0 l0 t0 lines">\(\{x \in \mathbb{R} \telque a \leqslant x \lt b\}\)</td>
+<td class="l m b0 r0 l0 t0 lines"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="images/image-3.svg" role="img" class="contained" alt=""></div></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">\(]a, b]\)</td>
+<td class="l m b0 r0 l0 t0 lines">\(\{x \in \mathbb{R} \telque a \lt x \leqslant b\}\)</td>
+<td class="l m b0 r0 l0 t0 lines"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="images/image-4.svg" role="img" class="contained" alt=""></div></td>
+</tr>
+</table></div></figure></p>
+<p id="p-86">À ces intervalles bornés s'ajoutent les ensembles des réels inférieurs à une valeur ou supérieurs à une valeur.</p>
+<p id="p-87">Un <em class="emphasis">intervalle réel non borné</em> est un ensemble de nombres réels délimité par un nombre réel constituant une borne, soit inférieure ou soit supérieure. Un intervalle non borné contient tous les nombres réels supérieurs ou inférieurs à cette borne, la borne pouvant être incluse ou non dans l'intervalle.</p>
+<p id="p-88"><figure class="table table-like" id="table-3"><figcaption><span class="type">Table</span><span class="space"> </span><span class="codenumber">1.1.7<span class="period">.</span></span><span class="space"> </span>Intervalles non bornés</figcaption><div class="tabular-box natural-width"><table class="tabular">
+<tr class="header-horizontal">
+<th class="l m b1 r0 l0 t0 lines">Notation</th>
+<th class="l m b1 r0 l0 t0 lines">En compréhension</th>
+<th class="l m b1 r0 l0 t0 lines">Représentation visuelle</th>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">\([a, \infty[\)</td>
+<td class="l m b0 r0 l0 t0 lines">\(\{x \in \mathbb{R} \telque x \geqslant a\}\)</td>
+<td class="l m b0 r0 l0 t0 lines">IMAGE</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">\(]a, \infty[\)</td>
+<td class="l m b0 r0 l0 t0 lines">\(\{x \in \mathbb{R} \telque x \gt a\}\)</td>
+<td class="l m b0 r0 l0 t0 lines">IMAGE</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">\(]\infty, a]\)</td>
+<td class="l m b0 r0 l0 t0 lines">\(\{x \in \mathbb{R} \telque x \leqslant a\}\)</td>
+<td class="l m b0 r0 l0 t0 lines">IMAGE</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">\(]\infty, a[\)</td>
+<td class="l m b0 r0 l0 t0 lines">\(\{x \in \mathbb{R} \telque x \lt a\}\)</td>
+<td class="l m b0 r0 l0 t0 lines">IMAGE</td>
+</tr>
+</table></div></figure></p>
+<p id="p-89">Puisque les intervalles sont des ensembles, on peut leur appliquer les opérations ensemblistes. Ainsi, on peut faire l'union, l'intersection et la différence d’intervalles.</p>
+<p id="p-90"><article class="example example-like" id="exemple_intervalles1"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-exemple_intervalles1"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.1.8</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exemple_intervalles1"><article class="example example-like"><p id="p-91">Donnez une représentation visuelle des ensembles.</p>
+<ol class="decimal cols3">
+<li id="li-60"><p id="p-92">\([-3,2]\text{.}\)</p></li>
+<li id="li-61"><p id="p-93">\(]4,5[\text{.}\)</p></li>
+<li id="li-62"><p id="p-94">\(]0,3] \cup [5,7[\text{.}\)</p></li>
+<li id="li-63"><p id="p-95">\(]\infty,4]\text{.}\)</p></li>
+<li id="li-64"><p id="p-96">\([2,\infty[\text{.}\)</p></li>
+<li id="li-65"><p id="p-97">\(]\infty,-1[ \,\cup\, ]1, \infty[\text{.}\)</p></li>
+</ol>
+<div class="solutions">
+<a data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-5" id="solution-5"><span class="type">Solution</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-5"><div class="solution solution-like"><ol id="p-98" class="decimal">
+<li id="li-66"><p id="p-99">IMAGE</p></li>
+<li id="li-67"><p id="p-100">IMAGE</p></li>
+<li id="li-68"><p id="p-101">IMAGE</p></li>
+<li id="li-69"><p id="p-102">IMAGE</p></li>
+<li id="li-70"><p id="p-103">IMAGE</p></li>
+<li id="li-71"><p id="p-104">IMAGE</p></li>
+</ol></div></div>
+</div></article></div></p>
+<p id="p-105"><article class="example example-like" id="exemple_intervalles2"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-exemple_intervalles2"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.1.9</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exemple_intervalles2"><article class="example example-like"><p id="p-106">Donnez l'ensemble correspondant à la représentation visuelle.</p>
+<ol class="decimal cols2">
+<li id="li-72"><p id="p-107">IMAGE</p></li>
+<li id="li-73"><p id="p-108">IMAGE</p></li>
+<li id="li-74"><p id="p-109">IMAGE</p></li>
+<li id="li-75"><p id="p-110">IMAGE</p></li>
+<li id="li-76"><p id="p-111">IMAGE</p></li>
+<li id="li-77"><p id="p-112">IMAGE</p></li>
+</ol>
+<div class="solutions">
+<a data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-6" id="solution-6"><span class="type">Solution</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-6"><div class="solution solution-like"><ol id="p-113" class="decimal">
+<li id="li-78"><p id="p-114">\(]-4,-1[\text{.}\)</p></li>
+<li id="li-79"><p id="p-115">\([\frac{1}{2},\infty[\text{.}\)</p></li>
+<li id="li-80"><p id="p-116">\(]-\infty,0[\text{.}\)</p></li>
+<li id="li-81"><p id="p-117">\(]5,6]\text{.}\)</p></li>
+<li id="li-82"><p id="p-118">\(\displaystyle [1,2] \cup [3,4]\)</p></li>
+<li id="li-83"><p id="p-119">\(\displaystyle ]-1,1[ \,\cup\, ]2,\infty[\)</p></li>
+</ol></div></div>
+</div></article></div></p></section></section></div></main>
+</div>
+</body>
+</html>

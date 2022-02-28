@@ -1,0 +1,861 @@
+%********************************************%
+%*       Generated from PreTeXt source      *%
+%*       on 2022-02-28T16:36:10-05:00       *%
+%*   A recent stable commit (2020-08-09):   *%
+%* 98f21740783f166a773df4dc83cab5293ab63a4a *%
+%*                                          *%
+%*         https://pretextbook.org          *%
+%*                                          *%
+%********************************************%
+%% We elect to always write snapshot output into <job>.dep file
+\RequirePackage{snapshot}
+\documentclass[oneside,10pt,]{book}
+%% Custom Preamble Entries, early (use latex.preamble.early)
+%% Default LaTeX packages
+%%   1.  always employed (or nearly so) for some purpose, or
+%%   2.  a stylewriter may assume their presence
+\usepackage{geometry}
+%% Some aspects of the preamble are conditional,
+%% the LaTeX engine is one such determinant
+\usepackage{ifthen}
+%% etoolbox has a variety of modern conveniences
+\usepackage{etoolbox}
+\usepackage{ifxetex,ifluatex}
+%% Raster graphics inclusion
+\usepackage{graphicx}
+%% Color support, xcolor package
+%% Always loaded, for: add/delete text, author tools
+%% Here, since tcolorbox loads tikz, and tikz loads xcolor
+\PassOptionsToPackage{usenames,dvipsnames,svgnames,table}{xcolor}
+\usepackage{xcolor}
+%% begin: defined colors, via xcolor package, for styling
+%% end: defined colors, via xcolor package, for styling
+%% Colored boxes, and much more, though mostly styling
+%% skins library provides "enhanced" skin, employing tikzpicture
+%% boxes may be configured as "breakable" or "unbreakable"
+%% "raster" controls grids of boxes, aka side-by-side
+\usepackage{tcolorbox}
+\tcbuselibrary{skins}
+\tcbuselibrary{breakable}
+\tcbuselibrary{raster}
+%% We load some "stock" tcolorbox styles that we use a lot
+%% Placement here is provisional, there will be some color work also
+%% First, black on white, no border, transparent, but no assumption about titles
+\tcbset{ bwminimalstyle/.style={size=minimal, boxrule=-0.3pt, frame empty,
+colback=white, colbacktitle=white, coltitle=black, opacityfill=0.0} }
+%% Second, bold title, run-in to text/paragraph/heading
+%% Space afterwards will be controlled by environment,
+%% independent of constructions of the tcb title
+%% Places \blocktitlefont onto many block titles
+\tcbset{ runintitlestyle/.style={fonttitle=\blocktitlefont\upshape\bfseries, attach title to upper} }
+%% Spacing prior to each exercise, anywhere
+\tcbset{ exercisespacingstyle/.style={before skip={1.5ex plus 0.5ex}} }
+%% Spacing prior to each block
+\tcbset{ blockspacingstyle/.style={before skip={2.0ex plus 0.5ex}} }
+%% xparse allows the construction of more robust commands,
+%% this is a necessity for isolating styling and behavior
+%% The tcolorbox library of the same name loads the base library
+\tcbuselibrary{xparse}
+%% Hyperref should be here, but likes to be loaded late
+%%
+%% Inline math delimiters, \(, \), need to be robust
+%% 2016-01-31:  latexrelease.sty  supersedes  fixltx2e.sty
+%% If  latexrelease.sty  exists, bugfix is in kernel
+%% If not, bugfix is in  fixltx2e.sty
+%% See:  https://tug.org/TUGboat/tb36-3/tb114ltnews22.pdf
+%% and read "Fewer fragile commands" in distribution's  latexchanges.pdf
+\IfFileExists{latexrelease.sty}{}{\usepackage{fixltx2e}}
+%% Footnote counters and part/chapter counters are manipulated
+%% April 2018:  chngcntr  commands now integrated into the kernel,
+%% but circa 2018/2019 the package would still try to redefine them,
+%% so we need to do the work of loading conditionally for old kernels.
+%% From version 1.1a,  chngcntr  should detect defintions made by LaTeX kernel.
+\ifdefined\counterwithin
+\else
+    \usepackage{chngcntr}
+\fi
+%% Text height identically 9 inches, text width varies on point size
+%% See Bringhurst 2.1.1 on measure for recommendations
+%% 75 characters per line (count spaces, punctuation) is target
+%% which is the upper limit of Bringhurst's recommendations
+\geometry{letterpaper,total={340pt,9.0in}}
+%% Custom Page Layout Adjustments (use latex.geometry)
+%% This LaTeX file may be compiled with pdflatex, xelatex, or lualatex executables
+%% LuaTeX is not explicitly supported, but we do accept additions from knowledgeable users
+%% The conditional below provides  pdflatex  specific configuration last
+%% begin: engine-specific capabilities
+\ifthenelse{\boolean{xetex} \or \boolean{luatex}}{%
+%% begin: xelatex and lualatex-specific default configuration
+\ifxetex\usepackage{xltxtra}\fi
+%% realscripts is the only part of xltxtra relevant to lualatex 
+\ifluatex\usepackage{realscripts}\fi
+%% end:   xelatex and lualatex-specific default configuration
+}{
+%% begin: pdflatex-specific default configuration
+%% We assume a PreTeXt XML source file may have Unicode characters
+%% and so we ask LaTeX to parse a UTF-8 encoded file
+%% This may work well for accented characters in Western language,
+%% but not with Greek, Asian languages, etc.
+%% When this is not good enough, switch to the  xelatex  engine
+%% where Unicode is better supported (encouraged, even)
+\usepackage[utf8]{inputenc}
+%% end: pdflatex-specific default configuration
+}
+%% end:   engine-specific capabilities
+%%
+%% Fonts.  Conditional on LaTex engine employed.
+%% Default Text Font: The Latin Modern fonts are
+%% "enhanced versions of the [original TeX] Computer Modern fonts."
+%% We use them as the default text font for PreTeXt output.
+%% Automatic Font Control
+%% Portions of a document, are, or may, be affected by defined commands
+%% These are perhaps more flexible when using  xelatex  rather than  pdflatex
+%% The following definitions are meant to be re-defined in a style, using \renewcommand
+%% They are scoped when employed (in a TeX group), and so should not be defined with an argument
+\newcommand{\divisionfont}{\relax}
+\newcommand{\blocktitlefont}{\relax}
+\newcommand{\contentsfont}{\relax}
+\newcommand{\pagefont}{\relax}
+\newcommand{\tabularfont}{\relax}
+\newcommand{\xreffont}{\relax}
+\newcommand{\titlepagefont}{\relax}
+%%
+\ifthenelse{\boolean{xetex} \or \boolean{luatex}}{%
+%% begin: font setup and configuration for use with xelatex
+%% Generally, xelatex is necessary for non-Western fonts
+%% fontspec package provides extensive control of system fonts,
+%% meaning *.otf (OpenType), and apparently *.ttf (TrueType)
+%% that live *outside* your TeX/MF tree, and are controlled by your *system*
+%% (it is possible that a TeX distribution will place fonts in a system location)
+%%
+%% The fontspec package is the best vehicle for using different fonts in  xelatex
+%% So we load it always, no matter what a publisher or style might want
+%%
+\usepackage{fontspec}
+%%
+%% begin: xelatex main font ("font-xelatex-main" template)
+%% Latin Modern Roman is the default font for xelatex and so is loaded with a TU encoding
+%% *in the format* so we can't touch it, only perhaps adjust it later
+%% in one of two ways (then known by NFSS names such as "lmr")
+%% (1) via NFSS with font family names such as "lmr" and "lmss"
+%% (2) via fontspec with commands like \setmainfont{Latin Modern Roman}
+%% The latter requires the font to be known at the system-level by its font name,
+%% but will give access to OTF font features through optional arguments
+%% https://tex.stackexchange.com/questions/470008/
+%% where-and-how-does-fontspec-sty-specify-the-default-font-latin-modern-roman
+%% http://tex.stackexchange.com/questions/115321
+%% /how-to-optimize-latin-modern-font-with-xelatex
+%%
+%% end:   xelatex main font ("font-xelatex-main" template)
+%% begin: xelatex mono font ("font-xelatex-mono" template)
+%% (conditional on non-trivial uses being present in source)
+%% end:   xelatex mono font ("font-xelatex-mono" template)
+%% begin: xelatex font adjustments ("font-xelatex-style" template)
+%% end:   xelatex font adjustments ("font-xelatex-style" template)
+%%
+%% Extensive support for other languages
+\usepackage{polyglossia}
+%% Set main/default language based on pretext/@xml:lang value
+%% document language code is "en-US", US English
+%% usmax variant has extra hypenation
+\setmainlanguage[variant=usmax]{english}
+%% Enable secondary languages based on discovery of @xml:lang values
+%% Enable fonts/scripts based on discovery of @xml:lang values
+%% Western languages should be ably covered by Latin Modern Roman
+%% end:   font setup and configuration for use with xelatex
+}{%
+%% begin: font setup and configuration for use with pdflatex
+%% begin: pdflatex main font ("font-pdflatex-main" template)
+\usepackage{lmodern}
+\usepackage[T1]{fontenc}
+%% end:   pdflatex main font ("font-pdflatex-main" template)
+%% begin: pdflatex mono font ("font-pdflatex-mono" template)
+%% (conditional on non-trivial uses being present in source)
+%% end:   pdflatex mono font ("font-pdflatex-mono" template)
+%% begin: pdflatex font adjustments ("font-pdflatex-style" template)
+%% end:   pdflatex font adjustments ("font-pdflatex-style" template)
+%% end:   font setup and configuration for use with pdflatex
+}
+%% Micromanage spacing, etc.  The named "microtype-options"
+%% template may be employed to fine-tune package behavior
+\usepackage{microtype}
+%% Symbols, align environment, commutative diagrams, bracket-matrix
+\usepackage{amsmath}
+\usepackage{amscd}
+\usepackage{amssymb}
+%% allow page breaks within display mathematics anywhere
+%% level 4 is maximally permissive
+%% this is exactly the opposite of AMSmath package philosophy
+%% there are per-display, and per-equation options to control this
+%% split, aligned, gathered, and alignedat are not affected
+\allowdisplaybreaks[4]
+%% allow more columns to a matrix
+%% can make this even bigger by overriding with  latex.preamble.late  processing option
+\setcounter{MaxMatrixCols}{30}
+%%
+%%
+%% Division Titles, and Page Headers/Footers
+%% titlesec package, loading "titleps" package cooperatively
+%% See code comments about the necessity and purpose of "explicit" option.
+%% The "newparttoc" option causes a consistent entry for parts in the ToC 
+%% file, but it is only effective if there is a \titleformat for \part.
+%% "pagestyles" loads the  titleps  package cooperatively.
+\usepackage[explicit, newparttoc, pagestyles]{titlesec}
+%% The companion titletoc package for the ToC.
+\usepackage{titletoc}
+%% Fixes a bug with transition from chapters to appendices in a "book"
+%% See generating XSL code for more details about necessity
+\newtitlemark{\chaptertitlename}
+%% begin: customizations of page styles via the modal "titleps-style" template
+%% Designed to use commands from the LaTeX "titleps" package
+%% Plain pages should have the same font for page numbers
+\renewpagestyle{plain}{%
+\setfoot{}{\pagefont\thepage}{}%
+}%
+%% Single pages as in default LaTeX
+\renewpagestyle{headings}{%
+\sethead{\pagefont\slshape\MakeUppercase{\ifthechapter{\chaptertitlename\space\thechapter.\space}{}\chaptertitle}}{}{\pagefont\thepage}%
+}%
+\pagestyle{headings}
+%% end: customizations of page styles via the modal "titleps-style" template
+%%
+%% Create globally-available macros to be provided for style writers
+%% These are redefined for each occurence of each division
+\newcommand{\divisionnameptx}{\relax}%
+\newcommand{\titleptx}{\relax}%
+\newcommand{\subtitleptx}{\relax}%
+\newcommand{\shortitleptx}{\relax}%
+\newcommand{\authorsptx}{\relax}%
+\newcommand{\epigraphptx}{\relax}%
+%% Create environments for possible occurences of each division
+%% Environment for a PTX "part" at the level of a LaTeX "part"
+\NewDocumentEnvironment{partptx}{mmmmmm}
+{%
+\renewcommand{\divisionnameptx}{Part}%
+\renewcommand{\titleptx}{#1}%
+\renewcommand{\subtitleptx}{#2}%
+\renewcommand{\shortitleptx}{#3}%
+\renewcommand{\authorsptx}{#4}%
+\renewcommand{\epigraphptx}{#5}%
+\part[{#3}]{#1}%
+\label{#6}%
+}{}%
+%% Environment for a PTX "chapter" at the level of a LaTeX "chapter"
+\NewDocumentEnvironment{chapterptx}{mmmmmm}
+{%
+\renewcommand{\divisionnameptx}{Chapter}%
+\renewcommand{\titleptx}{#1}%
+\renewcommand{\subtitleptx}{#2}%
+\renewcommand{\shortitleptx}{#3}%
+\renewcommand{\authorsptx}{#4}%
+\renewcommand{\epigraphptx}{#5}%
+\chapter[{#3}]{#1}%
+\label{#6}%
+}{}%
+%% Environment for a PTX "section" at the level of a LaTeX "section"
+\NewDocumentEnvironment{sectionptx}{mmmmmm}
+{%
+\renewcommand{\divisionnameptx}{Section}%
+\renewcommand{\titleptx}{#1}%
+\renewcommand{\subtitleptx}{#2}%
+\renewcommand{\shortitleptx}{#3}%
+\renewcommand{\authorsptx}{#4}%
+\renewcommand{\epigraphptx}{#5}%
+\section[{#3}]{#1}%
+\label{#6}%
+}{}%
+%% Environment for a PTX "subsection" at the level of a LaTeX "subsection"
+\NewDocumentEnvironment{subsectionptx}{mmmmmm}
+{%
+\renewcommand{\divisionnameptx}{Subsection}%
+\renewcommand{\titleptx}{#1}%
+\renewcommand{\subtitleptx}{#2}%
+\renewcommand{\shortitleptx}{#3}%
+\renewcommand{\authorsptx}{#4}%
+\renewcommand{\epigraphptx}{#5}%
+\subsection[{#3}]{#1}%
+\label{#6}%
+}{}%
+%%
+%% Styles for six traditional LaTeX divisions
+\titleformat{\part}[display]
+{\divisionfont\Huge\bfseries\centering}{\divisionnameptx\space\thepart}{30pt}{\Huge#1}
+[{\Large\centering\authorsptx}]
+\titleformat{\chapter}[display]
+{\divisionfont\huge\bfseries}{\divisionnameptx\space\thechapter}{20pt}{\Huge#1}
+[{\Large\authorsptx}]
+\titleformat{name=\chapter,numberless}[display]
+{\divisionfont\huge\bfseries}{}{0pt}{#1}
+[{\Large\authorsptx}]
+\titlespacing*{\chapter}{0pt}{50pt}{40pt}
+\titleformat{\section}[hang]
+{\divisionfont\Large\bfseries}{\thesection}{1ex}{#1}
+[{\large\authorsptx}]
+\titleformat{name=\section,numberless}[block]
+{\divisionfont\Large\bfseries}{}{0pt}{#1}
+[{\large\authorsptx}]
+\titlespacing*{\section}{0pt}{3.5ex plus 1ex minus .2ex}{2.3ex plus .2ex}
+\titleformat{\subsection}[hang]
+{\divisionfont\large\bfseries}{\thesubsection}{1ex}{#1}
+[{\normalsize\authorsptx}]
+\titleformat{name=\subsection,numberless}[block]
+{\divisionfont\large\bfseries}{}{0pt}{#1}
+[{\normalsize\authorsptx}]
+\titlespacing*{\subsection}{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+\titleformat{\subsubsection}[hang]
+{\divisionfont\normalsize\bfseries}{\thesubsubsection}{1em}{#1}
+[{\small\authorsptx}]
+\titleformat{name=\subsubsection,numberless}[block]
+{\divisionfont\normalsize\bfseries}{}{0pt}{#1}
+[{\normalsize\authorsptx}]
+\titlespacing*{\subsubsection}{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+\titleformat{\paragraph}[hang]
+{\divisionfont\normalsize\bfseries}{\theparagraph}{1em}{#1}
+[{\small\authorsptx}]
+\titleformat{name=\paragraph,numberless}[block]
+{\divisionfont\normalsize\bfseries}{}{0pt}{#1}
+[{\normalsize\authorsptx}]
+\titlespacing*{\paragraph}{0pt}{3.25ex plus 1ex minus .2ex}{1.5em}
+%%
+%% Styles for five traditional LaTeX divisions
+\titlecontents{part}%
+[0pt]{\contentsmargin{0em}\addvspace{1pc}\contentsfont\bfseries}%
+{\Large\thecontentslabel\enspace}{\Large}%
+{}%
+[\addvspace{.5pc}]%
+\titlecontents{chapter}%
+[0pt]{\contentsmargin{0em}\addvspace{1pc}\contentsfont\bfseries}%
+{\large\thecontentslabel\enspace}{\large}%
+{\hfill\bfseries\thecontentspage}%
+[\addvspace{.5pc}]%
+\dottedcontents{section}[3.8em]{\contentsfont}{2.3em}{1pc}%
+\dottedcontents{subsection}[6.1em]{\contentsfont}{3.2em}{1pc}%
+\dottedcontents{subsubsection}[9.3em]{\contentsfont}{4.3em}{1pc}%
+%%
+%% Begin: Semantic Macros
+%% To preserve meaning in a LaTeX file
+%%
+%% \mono macro for content of "c", "cd", "tag", etc elements
+%% Also used automatically in other constructions
+%% Simply an alias for \texttt
+%% Always defined, even if there is no need, or if a specific tt font is not loaded
+\newcommand{\mono}[1]{\texttt{#1}}
+%%
+%% Following semantic macros are only defined here if their
+%% use is required only in this specific document
+%%
+%% End: Semantic Macros
+%% Localize LaTeX supplied names (possibly none)
+\renewcommand*{\partname}{Part}
+\renewcommand*{\chaptername}{Chapter}
+%% "tcolorbox" environment for a single image, occupying entire \linewidth
+%% arguments are left-margin, width, right-margin, as multiples of
+%% \linewidth, and are guaranteed to be positive and sum to 1.0
+\tcbset{ imagestyle/.style={bwminimalstyle} }
+\NewTColorBox{image}{mmm}{imagestyle,left skip=#1\linewidth,width=#2\linewidth}
+%% For improved tables
+\usepackage{array}
+%% Some extra height on each row is desirable, especially with horizontal rules
+%% Increment determined experimentally
+\setlength{\extrarowheight}{0.2ex}
+%% Define variable thickness horizontal rules, full and partial
+%% Thicknesses are 0.03, 0.05, 0.08 in the  booktabs  package
+\newcommand{\hrulethin}  {\noalign{\hrule height 0.04em}}
+\newcommand{\hrulemedium}{\noalign{\hrule height 0.07em}}
+\newcommand{\hrulethick} {\noalign{\hrule height 0.11em}}
+%% We preserve a copy of the \setlength package before other
+%% packages (extpfeil) get a chance to load packages that redefine it
+\let\oldsetlength\setlength
+\newlength{\Oldarrayrulewidth}
+\newcommand{\crulethin}[1]%
+{\noalign{\global\oldsetlength{\Oldarrayrulewidth}{\arrayrulewidth}}%
+\noalign{\global\oldsetlength{\arrayrulewidth}{0.04em}}\cline{#1}%
+\noalign{\global\oldsetlength{\arrayrulewidth}{\Oldarrayrulewidth}}}%
+\newcommand{\crulemedium}[1]%
+{\noalign{\global\oldsetlength{\Oldarrayrulewidth}{\arrayrulewidth}}%
+\noalign{\global\oldsetlength{\arrayrulewidth}{0.07em}}\cline{#1}%
+\noalign{\global\oldsetlength{\arrayrulewidth}{\Oldarrayrulewidth}}}
+\newcommand{\crulethick}[1]%
+{\noalign{\global\oldsetlength{\Oldarrayrulewidth}{\arrayrulewidth}}%
+\noalign{\global\oldsetlength{\arrayrulewidth}{0.11em}}\cline{#1}%
+\noalign{\global\oldsetlength{\arrayrulewidth}{\Oldarrayrulewidth}}}
+%% Single letter column specifiers defined via array package
+\newcolumntype{A}{!{\vrule width 0.04em}}
+\newcolumntype{B}{!{\vrule width 0.07em}}
+\newcolumntype{C}{!{\vrule width 0.11em}}
+%% tcolorbox to place tabular outside of a sidebyside
+\tcbset{ tabularboxstyle/.style={bwminimalstyle,} }
+\newtcolorbox{tabularbox}[3]{tabularboxstyle, left skip=#1\linewidth, width=#2\linewidth,}
+%% Multiple column, column-major lists
+\usepackage{multicol}
+%% More flexible list management, esp. for references
+%% But also for specifying labels (i.e. custom order) on nested lists
+\usepackage{enumitem}
+%% hyperref driver does not need to be specified, it will be detected
+%% Footnote marks in tcolorbox have broken linking under
+%% hyperref, so it is necessary to turn off all linking
+%% It *must* be given as a package option, not with \hypersetup
+\usepackage[hyperfootnotes=false]{hyperref}
+%% Hyperlinking active in electronic PDFs, all links solid and blue
+\hypersetup{colorlinks=true,linkcolor=blue,citecolor=blue,filecolor=blue,urlcolor=blue}
+\hypersetup{pdftitle={RELCALC 1}}
+%% If you manually remove hyperref, leave in this next command
+%% This will allow LaTeX compilation, employing this no-op command
+\providecommand\phantomsection{}
+%% Division Numbering: Chapters, Sections, Subsections, etc
+%% Division numbers may be turned off at some level ("depth")
+%% A section *always* has depth 1, contrary to us counting from the document root
+%% The latex default is 3.  If a larger number is present here, then
+%% removing this command may make some cross-references ambiguous
+%% The precursor variable $numbering-maxlevel is checked for consistency in the common XSL file
+\setcounter{secnumdepth}{3}
+%%
+%% AMS "proof" environment is no longer used, but we leave previously
+%% implemented \qedhere in place, should the LaTeX be recycled
+\newcommand{\qedhere}{\relax}
+%%
+%% A faux tcolorbox whose only purpose is to provide common numbering
+%% facilities for most blocks (possibly not projects, 2D displays)
+%% Controlled by  numbering.theorems.level  processing parameter
+\newtcolorbox[auto counter, number within=section]{block}{}
+%%
+%% This document is set to number PROJECT-LIKE on a separate numbering scheme
+%% So, a faux tcolorbox whose only purpose is to provide this numbering
+%% Controlled by  numbering.projects.level  processing parameter
+\newtcolorbox[auto counter, number within=section]{project-distinct}{}
+%% A faux tcolorbox whose only purpose is to provide common numbering
+%% facilities for 2D displays which are subnumbered as part of a "sidebyside"
+\makeatletter
+\newtcolorbox[auto counter, number within=tcb@cnt@block, number freestyle={\noexpand\thetcb@cnt@block(\noexpand\alph{\tcbcounter})}]{subdisplay}{}
+\makeatother
+%%
+%% tcolorbox, with styles, for EXAMPLE-LIKE
+%%
+%% example: fairly simple numbered block/structure
+\tcbset{ examplestyle/.style={bwminimalstyle, runintitlestyle, blockspacingstyle, after title={\space}, after upper={\space\space\hspace*{\stretch{1}}\(\square\)}, } }
+\newtcolorbox[use counter from=block]{example}[2]{title={{Example~\thetcbcounter\notblank{#1}{\space\space#1}{}}}, phantomlabel={#2}, breakable, parbox=false, after={\par}, examplestyle, }
+%%
+%% tcolorbox, with styles, for FIGURE-LIKE
+%%
+%% tableptx: 2-D display structure
+\tcbset{ tableptxstyle/.style={bwminimalstyle, middle=1ex, blockspacingstyle, coltitle=black, bottomtitle=2ex, titlerule=-0.3pt, fonttitle=\blocktitlefont} }
+\newtcolorbox[use counter from=block]{tableptx}[3]{title={{\textbf{Table~\thetcbcounter}\space#1}}, phantomlabel={#2}, unbreakable, parbox=false, tableptxstyle, }
+%%
+%% xparse environments for introductions and conclusions of divisions
+%%
+%% introduction: in a structured division
+\NewDocumentEnvironment{introduction}{m}
+{\notblank{#1}{\noindent\textbf{#1}\space}{}}{\par\medskip}
+%% Graphics Preamble Entries
+\usepackage{tikz}
+\usetikzlibrary[arrows.meta]
+%% If tikz has been loaded, replace ampersand with \amp macro
+\ifdefined\tikzset
+    \tikzset{ampersand replacement = \amp}
+\fi
+%% extpfeil package for certain extensible arrows,
+%% as also provided by MathJax extension of the same name
+%% NB: this package loads mtools, which loads calc, which redefines
+%%     \setlength, so it can be removed if it seems to be in the 
+%%     way and your math does not use:
+%%     
+%%     \xtwoheadrightarrow, \xtwoheadleftarrow, \xmapsto, \xlongequal, \xtofrom
+%%     
+%%     we have had to be extra careful with variable thickness
+%%     lines in tables, and so also load this package late
+\usepackage{extpfeil}
+%% Custom Preamble Entries, late (use latex.preamble.late)
+%% Begin: Author-provided packages
+%% (From  docinfo/latex-preamble/package  elements)
+%% End: Author-provided packages
+%% Begin: Author-provided macros
+%% (From  docinfo/macros  element)
+%% Plus three from MBX for XML characters
+\newcommand{\foo}{bar}
+\newcommand{\telque}{ \,|\, }
+\newcommand{\lt}{<}
+\newcommand{\gt}{>}
+\newcommand{\amp}{&}
+%% End: Author-provided macros
+\begin{document}
+Ces ressources éducatives libres sur le calcul différentiel ont été produites par Jean-Philippe Morin, Juan Carlos Bustamante, Julie Tremblay et Sylvain Bérubé.%
+%
+%
+\typeout{************************************************}
+\typeout{Part I Fonctions rationnelles}
+\typeout{************************************************}
+%
+\begin{partptx}{Fonctions rationnelles}{}{Fonctions rationnelles}{}{}{g:part:idm1453791508}
+ %
+%
+\typeout{************************************************}
+\typeout{Chapter 1 Préalables}
+\typeout{************************************************}
+%
+\begin{chapterptx}{Préalables}{}{Préalables}{}{}{x:chapter:prealables}
+\begin{introduction}{}%
+Dans ce chapitre, nous présentons plusieurs notions mathématiques préalables nécessaires à l’étude du calcul différentiel. La bonne maîtrise de ces notions facilitera l'apprentissage des nouveaux concepts.%
+\end{introduction}%
+%
+%
+\typeout{************************************************}
+\typeout{Section 1.1 Les ensembles}
+\typeout{************************************************}
+%
+\begin{sectionptx}{Les ensembles}{}{Les ensembles}{}{}{x:section:ensembles}
+Le terme ensemble est intuitivement compris comme désignant une collection d'objets. Par exemple, l'ensemble des couleurs primaires en peinture est \textbraceleft{}rouge, jaune, bleu\textbraceright{} et il comprend 3 objets, à savoir les couleurs rouge, jaune et bleu. En mathématiques, ce concept fondamental d'ensemble est le point de départ sur lequel on peut construire des idées plus complexes, et c'est la raison pour laquelle notre étude du calcul différentiel s'amorce sur leur présentation.%
+%
+%
+\typeout{************************************************}
+\typeout{Subsection 1.1.1 Notation et opérations ensemblistes}
+\typeout{************************************************}
+%
+\begin{subsectionptx}{Notation et opérations ensemblistes}{}{Notation et opérations ensemblistes}{}{}{x:subsection:ensembles-notation-oprations}
+Un \emph{ensemble} est un regroupement d'objets distincts. Les objets sont appelés \emph{éléments} de l'ensemble.%
+\par
+Pour dénoter des ensembles, la convention mathématiques est d'utiliser des lettres majuscules, par exemple \(A, B, C, X, Y\). Et pour représenter les éléments d'un ensemble, on utilise plutôt des lettres minuscules, par exemple \(a, b, c, x, y\).%
+\par
+Un ensemble peut être \emph{défini en extension}, c’est-à-dire en énumérant les éléments qu’il contient. Pour se faire, on place les éléments entre accolades et les séparés par des virgules. Par exemple, pour définir en extension l'ensemble des diviseurs du nombre 12, on écrit%
+\begin{equation*}
+A = \{1, 2, 3, 4, 6, 12\}\text{.}
+\end{equation*}
+Cet énoncé mathématique se lit de la façon suivante : « \(A\) est l'ensemble contenant les éléments 1, 2, 3, 4, 6, 12 ».%
+\par
+Un ensemble peut également être \emph{défini en compréhension}, c’est-à-dire en décrivant les caractéristiques des éléments qu’il contient. Ceci est utile lorsqu'un ensemble contient un grand nombre d'éléments, voire une infinité. Pour se faire, on utilise la notation d'un ensemble en compréhension. Par exemple, pour définir en compréhension l'ensemble contenant les entiers 3, 4, 5, 6 et 7, on peut écrire%
+\begin{equation*}
+B = \{x \telque x \text{ est un entier supérieur à 2 et inférieur à 8}\}\text{.}
+\end{equation*}
+La barre verticale « \(\telque\) » est un symbole signifiant « tel que », donc l'énoncé mathématique se lit comme suit : « \(B\) est l'ensemble contenant tous les éléments \(x\) tels que \(x\) est supérieur à 2 et inférieur à 8 ». À noter que cet ensemble se décrit en extension de la façon suivante : \(B = \{3, 4, 5, 6, 7\}\).%
+\begin{example}{}{x:example:ens_ext_comp}%
+Décrivez en extension et en compréhension l'ensemble \(A\) contenant tous les nombres pairs entre 1 et 11.%
+\par\smallskip%
+\noindent\textbf{\blocktitlefont Solution}.\hypertarget{g:solution:idm1453779916}{}\quad{}En extension : \(A = \{2,4,6,8,10\}\).%
+\par
+En compréhension : \(A = \{x \telque x \text{ est un nombre pair entre $1$ et $11$}\}\).%
+\end{example}
+Ce qui est en jeu au premier chef dans la notion d'ensemble, c'est la \emph{relation d’appartenance}, laquelle établit si un élément fait partie d'un ensemble. Pour indiquer que l'élément \(x\) appartient à l'ensemble \(A\), on écrit \(x \in A\). Cet énoncé peut se lire de différentes façons : « \(x\) appartient à \(A\) », « \(x\) est élément de \(A\) », « \(x\) est dans \(A\) », « \(A\) a pour élément \(a\) », « \(A\) possède \(x\) ». Par exemple, \(3 \in \{1,2,3,4,5\}\).%
+\par
+Comme souvent pour les relations, on barre le symbole \(\in\) pour indiquer sa négation, à savoir la non-appartenance d’un élément à un ensemble. Ainsi, pour indiquer que l'élément \(x\) n'appartient pas à l'ensemble \(A\), on écrit \(x \notin A\). Par exemple, \(7 \notin \{1,2,3,4,5\}\).%
+\par
+Lorsque tous les éléments d'un ensemble \(A\) sont aussi éléments d'un ensemble \(B\), on dit alors que l'ensemble \(A\) est un \emph{sous-ensemble} de l'ensemble \(B\) ou encore que l'ensemble \(A\) est une partie de l'ensemble \(B\). On note ceci \(A \subseteq B\). Par ailleurs, si l'ensemble \(C\) n'est pas un sous-ensemble de l'ensemble \(D\), alors on écrit \(C \not\subseteq D\). Cela revient à dire qu'il y a un élément de \(C\) qui n'est pas dans \(D\), c'est-à-dire qu'il existe un élément \(c \in C\) tel que \(c \notin D\). De plus, si les ensembles \(E\) et \(F\) contiennent les mêmes éléments, alors on dit que ces deux ensembles sont \emph{égaux}, ce que l'on note \(E = F\).%
+\par
+Un ensemble important en mathématiques est l'ensemble vide. L'\emph{ensemble vide} est l'ensemble qui ne contient aucun élément. Il est noté \(\varnothing\) ou \(\{ \}\). Pour tout élément \(x\), nous avons toujours \(x \notin \varnothing\). Et pour tout ensemble \(A\), on a \(\varnothing \in A\).%
+\begin{example}{}{x:example:ex_ens_notation}%
+Soit \(A = \{1,2,3,4,5,6\}\), \(B = \{2,4,6\}\), \(C = \{1,2,3\}\) et \(D = \{7,8,9\}\). Déterminez lesquelles des propositions suivantes sont vraies, fausses ou dénuées de sens.%
+\par
+%
+\begin{multicols}{3}
+\begin{enumerate}
+\item{}\(A \subset B\).%
+\item{}\(B \subset A\).%
+\item{}\(B \in C\).%
+\item{}\(\emptyset \in A\).%
+\item{}\(\emptyset \subset A\).%
+\item{}\(A \lt D\).%
+\item{}\(3 \in C\).%
+\item{}\(3 \subset C\).%
+\item{}\(\{3\} \subset C\).%
+\end{enumerate}
+\end{multicols}
+%
+\par\smallskip%
+\noindent\textbf{\blocktitlefont Solution}.\hypertarget{g:solution:idm1453753492}{}\quad{}%
+\begin{enumerate}
+\item{}Faux. Par exemple, \(1\in A\) mais \(1 \notin B\).%
+\item{}Vrai. Tout élément de \(B\) est un élément de \(A\).%
+\item{}Faux. Les éléments de \(C\) sont 1, 2, 3. L'ensemble \(B\) n'est pas égal à 1, 2 ou 3.%
+\item{}Faux. Aucun des 6 éléments de \(A\) n'est l'ensemble vide.%
+\item{}Vrai. Notez que l'ensemble vide est un sous-ensemble de chaque ensemble.%
+\item{}Dénué de sens. Un ensemble ne peut pas être inférieur à un autre ensemble.%
+\item{}Vrai. \(3\) est un des éléments de l'ensemble \(C\).%
+\item{}Dénué de sens. \(3\) n'est pas un ensemble, alors il ne peut pas un sous-ensemble d'un autre ensemble.%
+\item{}Vrai. \(3\) est le seul élément de l'ensemble \(\{3\}\), et il est un élément de \(C\), donc tout élément de \(\{3\}\) est un élément de \(C\).%
+\end{enumerate}
+%
+\end{example}
+On va maintenant définir quelques opérations utiles sur les ensembles.%
+\par
+L'\emph{union} de deux ensembles \(A\) et \(B\), notée \(A \cup B\) (lire « \(A\) union \(B\) »), est l'ensemble des éléments appartenant à \(A\) ou à \(B\) (ou aux deux). Formellement,%
+\begin{equation*}
+A \cup B = \{x \telque x\in A \text{ ou } x \in B \}.
+\end{equation*}
+%
+\par
+L'\emph{intersection} de deux ensembles \(A\) et \(B\), notée \(A \cap B\) (lire « \(A\) inter \(B\) »), est l'ensemble des éléments appartenant à \(A\) et à \(B\). Formellement,%
+\begin{equation*}
+A \cap B = \{x \telque x\in A \text{ et } x \in B \}.
+\end{equation*}
+%
+\par
+La \emph{différence} de deux ensembles \(A\) et \(B\), notée \(A \setminus B\) (lire « \(A\) moins \(B\) »), est l'ensemble des éléments appartenant à \(A\) mais n'appartenant pas à \(B\). Formellement,%
+\begin{equation*}
+A \setminus B = \{x \telque x\in A \text{ et } x \notin B \}.
+\end{equation*}
+%
+\begin{example}{}{x:example:exemple_ensemble_operations}%
+Soit \(A = \{1,2,3,4,5\}\), \(B = \{3,4,5,6,7\}\) et \(C = \{7,8,9\}\). Déterminez les ensembles suivants.%
+\par
+%
+\begin{multicols}{3}
+\begin{enumerate}
+\item{}\(A \cap B\).%
+\item{}\(A \cap C\).%
+\item{}\(A \cup B\).%
+\item{}\(A \cup C\).%
+\item{}\(A \setminus B\).%
+\item{}\(B \setminus A\).%
+\end{enumerate}
+\end{multicols}
+%
+\par\smallskip%
+\noindent\textbf{\blocktitlefont Solution}.\hypertarget{g:solution:idm1453720876}{}\quad{}%
+\begin{enumerate}
+\item{}\(A \cap B = \{3,4,5\}\).%
+\item{}\(A \cap C = \varnothing\).%
+\item{}\(A \cup B = \{1,2,3,4,5,6,7\}\).%
+\item{}\(A \cup C = \{1,2,3,4,5,6,7,8,9\}\).%
+\item{}\(A \setminus B = \{1,2\}\).%
+\item{}\(B \setminus A = \{6,7\}\).%
+\end{enumerate}
+%
+\end{example}
+\end{subsectionptx}
+%
+%
+\typeout{************************************************}
+\typeout{Subsection 1.1.2 Ensembles de nombres}
+\typeout{************************************************}
+%
+\begin{subsectionptx}{Ensembles de nombres}{}{Ensembles de nombres}{}{}{x:subsection:ensembles-de-nombres}
+En fonction de leurs caractéristiques, les nombres sont classés en différents ensembles, appelés \emph{ensembles de nombres}. Les principaux ensembles de nombres sont les suivants:%
+\begin{itemize}[label=\textbullet]
+\item{}\(\mathbb{N} = \{0,1,2,3,\ldots\}\) désigne l'ensemble des \emph{entiers naturels}.%
+\item{}\(\mathbb{Z} = \{\ldots,-2,-1,0,1,2,\ldots\}\) désigne l'ensemble des \emph{entiers}, également appelés entiers relatifs.%
+\item{}\(\mathbb{Q} = \{\frac{a}{b} \telque a, b \in \mathbb{Z} \text{ et } b \neq 0\}\) désigne l'ensemble des \emph{rationnels}. La représentation décimale des rationnels est finie ou périodique.%
+\item{}\(\mathbb{Q}'\) désigne l'ensemble des \emph{irrationnels}, c'est-à-dire l'ensemble des nombres ne pouvant pas s'écrire sous forme de fraction de nombres entiers. La représentation décimale des irrationnels est infinie non périodique.%
+\item{}\(\mathbb{R} = \mathbb{Q} \cup \mathbb{Q}'\) désigne l'ensemble des \emph{réels}.%
+\end{itemize}
+%
+\par
+On remarque que%
+\begin{equation*}
+\mathbb{N} \subseteq \mathbb{Z} \subseteq \mathbb{Q} \subseteq \mathbb{R}.
+\end{equation*}
+%
+\par
+On peut adjoindre ces ensembles des symboles \(+\) et \(-\), placés en exposant, pour signifier qu’on considère les valeurs positives ou négatives respectivement. De son côté, le symbole \(*\) signifie qu’on retire le 0 de l'ensemble.%
+\par
+\begin{tableptx}{\textbf{Ensemble de nombres}}{g:table:idm1453699780}{}%
+\centering%
+{\tabularfont%
+\begin{tabular}{lll}
+\textbf{Notation}&\textbf{Nom de l'ensemble}&\textbf{Représentation}\tabularnewline\hrulethin
+\(\mathbb{N}\)&Entiers naturels&\(\mathbb{N} = \{0,1,2,3,\ldots\}\)\tabularnewline[0pt]
+\(\mathbb{N}^{*}\)&Entiers naturels non nuls&\(\mathbb{N} = \mathbb{N} \setminus \{0\} = \{1,2,3,\ldots\}\)\tabularnewline[0pt]
+\(\mathbb{Z}\)&Entiers&\(\mathbb{Z} = \{\ldots,-2,-1,0,1,2,\ldots\}\)\tabularnewline[0pt]
+\(\mathbb{Z}^{+}\)&Entiers positifs&\(\mathbb{Z}^{+} = \mathbb{N} = \{0,1,2,3,\ldots\}\)\tabularnewline[0pt]
+\(\mathbb{Z}^{-}\)&Entiers négatifs&\(\mathbb{Z}^{-} = \mathbb{Z} \setminus \mathbb{N}^{*} = \{\ldots,-3,-2,-1,0\}\)\tabularnewline[0pt]
+\(\mathbb{Z}^{*}\)&Entiers non nuls&\(\mathbb{Z}^{*} = \mathbb{Z} \setminus \{0\} = \{\ldots,-2,-1,1,2,\ldots\}\)\tabularnewline[0pt]
+\(\mathbb{Q}\)&Rationnels&\(\mathbb{Q} = \{\frac{a}{b} \telque a \in \mathbb{Z} \text{ et } b \in \mathbb{Z}^{*}\}\)\tabularnewline[0pt]
+\(\mathbb{Q}'\)&Irrationnels&\tabularnewline[0pt]
+\(\mathbb{R}\)&Réels&\(\mathbb{R} = \mathbb{Q} \cup \mathbb{Q}'\)\tabularnewline[0pt]
+\(\mathbb{R}^{+}\)&Réels positifs&\(\mathbb{R}^{+} = \{x \in \mathbb{R} \telque x \geqslant 0\}\)\tabularnewline[0pt]
+\(\mathbb{R}^{-}\)&Réels négatifs&\(\mathbb{R}^{-} = \{x \in \mathbb{R} \telque x \leqslant 0\}\)\tabularnewline[0pt]
+\(\mathbb{R}^{*}\)&Réels non nuls&\(\mathbb{R}^{*} = \mathbb{R} \setminus \{0\}\)
+\end{tabular}
+}%
+\end{tableptx}%
+%
+\par
+\begin{example}{}{x:example:exemple_ensemble_nombres}%
+Pour chaque énoncé, dites s'il est vrai ou faux.%
+\par
+%
+\begin{multicols}{3}
+\begin{enumerate}
+\item{}\(\mathbb{N} \cup \mathbb{Z}^{-} = \mathbb{Z}\).%
+\item{}\(\mathbb{N} \cap \mathbb{Z}^{-} = \varnothing\).%
+\item{}\(\mathbb{Q} \cap \mathbb{Q}' = \varnothing\).%
+\item{}\(\mathbb{Q} \setminus \mathbb{Z} = \mathbb{Q}'\).%
+\item{}\(\mathbb{R} \setminus \mathbb{Q}' = \mathbb{Q}\).%
+\item{}\(\mathbb{Z} \cap \mathbb{N} = \mathbb{N}\).%
+\item{}\(0 \in \mathbb{Z}^{-}\).%
+\item{}\(\sqrt{2} \in \mathbb{N}\).%
+\item{}\(\frac{8}{2} \in \mathbb{N}\).%
+\item{}\(\frac{-25}{3} \in \mathbb{Z}^{-}\).%
+\item{}\(\sqrt[\leftroot{-2}\uproot{2}4]{256} \in \mathbb{Q}'\).%
+\item{}\(\sqrt{\frac{4}{9}} \in \mathbb{Q}\).%
+\end{enumerate}
+\end{multicols}
+%
+\par\smallskip%
+\noindent\textbf{\blocktitlefont Solution}.\hypertarget{g:solution:idm1453665580}{}\quad{}%
+\begin{enumerate}
+\item{}Vrai.%
+\item{}Faux car \(\mathbb{N} \cap \mathbb{Z}^{-} = \{0\}\).%
+\item{}Vrai.%
+\item{}Faux, par exemple \(\frac{1}{2} \in \mathbb{Q} \setminus \mathbb{Z}\) mais \(\frac{1}{2} \notin \mathbb{Q}'\).%
+\item{}Vrai.%
+\item{}Vrai.%
+\item{}Vrai.%
+\item{}Faux, \(\sqrt{2}\) est un irrationnel et non un entier naturel.%
+\item{}Vrai.%
+\item{}Faux, \(\frac{-25}{3} \approx -8,333\) n'est pas un entier relatif négatif.%
+\item{}Faux, \(\sqrt[\leftroot{-2}\uproot{2}4]{256} = 4\) est un rationnel et non un irrationnel.%
+\item{}Vrai.%
+\end{enumerate}
+%
+\end{example}
+%
+\end{subsectionptx}
+%
+%
+\typeout{************************************************}
+\typeout{Subsection 1.1.3 Notation d'intervalle}
+\typeout{************************************************}
+%
+\begin{subsectionptx}{Notation d'intervalle}{}{Notation d'intervalle}{}{}{x:subsection:notation-dintervalle}
+Souvent, on est emmené à travailler avec des sous-ensembles de nombres réels, en particulier des segments de la droite réelle. Une manière pratique et standard de représenter de tels sous-ensembles consiste à utiliser la notation d'intervalle.%
+\par
+Un \emph{intervalle réel borné} est un ensemble de nombres réels délimité par deux nombres réels constituant une borne inférieure et une borne supérieure. Un intervalle contient tous les nombres réels compris entre ces deux bornes, les bornes pouvant être incluses ou non dans l'intervalle.%
+\par
+\begin{tableptx}{\textbf{Intervalles bornés}}{g:table:idm1454165748}{}%
+\centering%
+{\tabularfont%
+\begin{tabular}{lll}
+\textbf{Notation}&\textbf{En compréhension}&\textbf{Représentation visuelle}\tabularnewline\hrulethin
+\([a, b]\)&\(\{x \in \mathbb{R} \telque a \leqslant x \leqslant b\}\)&\begin{image}{0}{1}{0}%
+\resizebox{\linewidth}{!}{%
+\begin{tikzpicture}
+  \draw[-latex] (0,0) -- (2,0);
+  \fill[black] (0.50,0) circle (0.05);
+  \draw (0.50,0) node[below=-2pt] {\tiny{$a$\strut}};
+  \fill[black] (1.40,0) circle (0.05);
+  \draw (1.40,0) node[below=-2pt] {\tiny{$b$\strut}};
+  \fill[fill=black, opacity=0.8](0.50,-0.02)--(0.50,0.02)--(1.40,0.02)--(1.40,-0.02)--(0.50,-0.02);
+\end{tikzpicture}
+}%
+\end{image}%
+\tabularnewline[0pt]
+\(]a, b[\)&\(\{x \in \mathbb{R} \telque a \lt x \lt b\}\)&\begin{image}{0}{1}{0}%
+\resizebox{\linewidth}{!}{%
+\begin{tikzpicture}
+  \draw[-latex] (0,0) -- (2,0);
+  \fill[fill=black, opacity=0.8](0.50,-0.02)--(0.50,0.02)--(1.40,0.02)--(1.40,-0.02)--(0.50,-0.02);
+  \node[circle, draw=black, fill=white, inner sep=0pt,minimum size=3pt] at (0.50,0) {};
+  \draw (0.50,0) node[below=-2pt] {\tiny{$a$\strut}};
+  \draw (1.40,0) node[below=-2pt] {\tiny{$b$\strut}};
+  \node[circle,draw=black, fill=white, inner sep=0pt,minimum size=3pt] at (1.40,0) {};
+\end{tikzpicture}
+}%
+\end{image}%
+\tabularnewline[0pt]
+\([a, b[\)&\(\{x \in \mathbb{R} \telque a \leqslant x \lt b\}\)&\begin{image}{0}{1}{0}%
+\resizebox{\linewidth}{!}{%
+\begin{tikzpicture}
+  \draw[-latex] (0,0) -- (2,0);
+  \fill[fill=black, opacity=0.8](0.50,-0.02)--(0.50,0.02)--(1.40,0.02)--(1.40,-0.02)--(0.50,-0.02);
+  \node[circle, draw=black, fill=black, inner sep=0pt,minimum size=3pt] at (0.50,0) {};
+  \draw (0.50,0) node[below=-2pt] {\tiny{$a$\strut}};
+  \draw (1.40,0) node[below=-2pt] {\tiny{$b$\strut}};
+  \node[circle,draw=black, fill=white, inner sep=0pt,minimum size=3pt] at (1.40,0) {};
+\end{tikzpicture}
+}%
+\end{image}%
+\tabularnewline[0pt]
+\(]a, b]\)&\(\{x \in \mathbb{R} \telque a \lt x \leqslant b\}\)&\begin{image}{0}{1}{0}%
+\resizebox{\linewidth}{!}{%
+\begin{tikzpicture}
+  \draw[-latex] (0,0) -- (2,0);
+  \fill[fill=black, opacity=0.8](0.50,-0.02)--(0.50,0.02)--(1.40,0.02)--(1.40,-0.02)--(0.50,-0.02);
+  \node[circle, draw=black, fill=white, inner sep=0pt,minimum size=3pt] at (0.50,0) {};
+  \draw (0.50,0) node[below=-2pt] {\tiny{$a$\strut}};
+  \draw (1.40,0) node[below=-2pt] {\tiny{$b$\strut}};
+  \node[circle,draw=black, fill=black, inner sep=0pt,minimum size=3pt] at (1.40,0) {};
+\end{tikzpicture}
+}%
+\end{image}%
+
+\end{tabular}
+}%
+\end{tableptx}%
+%
+\par
+À ces intervalles bornés s'ajoutent les ensembles des réels inférieurs à une valeur ou supérieurs à une valeur.%
+\par
+Un \emph{intervalle réel non borné} est un ensemble de nombres réels délimité par un nombre réel constituant une borne, soit inférieure ou soit supérieure. Un intervalle non borné contient tous les nombres réels supérieurs ou inférieurs à cette borne, la borne pouvant être incluse ou non dans l'intervalle.%
+\par
+\begin{tableptx}{\textbf{Intervalles non bornés}}{g:table:idm1454154156}{}%
+\centering%
+{\tabularfont%
+\begin{tabular}{lll}
+\textbf{Notation}&\textbf{En compréhension}&\textbf{Représentation visuelle}\tabularnewline\hrulethin
+\([a, \infty[\)&\(\{x \in \mathbb{R} \telque x \geqslant a\}\)&IMAGE\tabularnewline[0pt]
+\(]a, \infty[\)&\(\{x \in \mathbb{R} \telque x \gt a\}\)&IMAGE\tabularnewline[0pt]
+\(]\infty, a]\)&\(\{x \in \mathbb{R} \telque x \leqslant a\}\)&IMAGE\tabularnewline[0pt]
+\(]\infty, a[\)&\(\{x \in \mathbb{R} \telque x \lt a\}\)&IMAGE
+\end{tabular}
+}%
+\end{tableptx}%
+%
+\par
+Puisque les intervalles sont des ensembles, on peut leur appliquer les opérations ensemblistes. Ainsi, on peut faire l'union, l'intersection et la différence d’intervalles.%
+\par
+\begin{example}{}{x:example:exemple_intervalles1}%
+Donnez une représentation visuelle des ensembles.%
+%
+\begin{multicols}{3}
+\begin{enumerate}
+\item{}\([-3,2]\).%
+\item{}\(]4,5[\).%
+\item{}\(]0,3] \cup [5,7[\).%
+\item{}\(]\infty,4]\).%
+\item{}\([2,\infty[\).%
+\item{}\(]\infty,-1[ \,\cup\, ]1, \infty[\).%
+\end{enumerate}
+\end{multicols}
+\par\smallskip%
+\noindent\textbf{\blocktitlefont Solution}.\hypertarget{g:solution:idm1454138532}{}\quad{}%
+\begin{enumerate}
+\item{}IMAGE%
+\item{}IMAGE%
+\item{}IMAGE%
+\item{}IMAGE%
+\item{}IMAGE%
+\item{}IMAGE%
+\end{enumerate}
+%
+\end{example}
+%
+\par
+\begin{example}{}{x:example:exemple_intervalles2}%
+Donnez l'ensemble correspondant à la représentation visuelle.%
+%
+\begin{multicols}{2}
+\begin{enumerate}
+\item{}IMAGE%
+\item{}IMAGE%
+\item{}IMAGE%
+\item{}IMAGE%
+\item{}IMAGE%
+\item{}IMAGE%
+\end{enumerate}
+\end{multicols}
+\par\smallskip%
+\noindent\textbf{\blocktitlefont Solution}.\hypertarget{g:solution:idm1454130828}{}\quad{}%
+\begin{enumerate}
+\item{}\(]-4,-1[\).%
+\item{}\([\frac{1}{2},\infty[\).%
+\item{}\(]-\infty,0[\).%
+\item{}\(]5,6]\).%
+\item{}\(\displaystyle [1,2] \cup [3,4]\)%
+\item{}\(\displaystyle ]-1,1[ \,\cup\, ]2,\infty[\)%
+\end{enumerate}
+%
+\end{example}
+%
+\end{subsectionptx}
+\end{sectionptx}
+\end{chapterptx}
+\end{partptx}
+\end{document}
